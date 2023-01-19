@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "artists logo categories";
+  font-size: 1.5rem;
+}
+.artists_container,
+.logo_container,
+.categories_container {
+  display: flex;
+}
+
+.artists_container {
+  grid-area: artists;
+  justify-content: flex-start;
+}
+
+.logo_container {
+  justify-content: center;
+  font-size: 3.5rem;
+  grid-area: logo;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.categories_container {
+  grid-area: categories;
+  justify-content: flex-end;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.artists,
+.categories {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.artists:hover,
+.categories:hover {
+  color: var(--orange);
+  transition: var(--hoverTransition);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    font-size: 1.25rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo logo"
+      "artists categories";
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+}
