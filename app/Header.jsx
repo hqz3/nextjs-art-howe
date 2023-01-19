@@ -1,19 +1,17 @@
-"use client";
 import styles from "../styles/Header.module.css";
+import Link from "next/link";
 
 export default function Header() {
-  function handleHeaderClick(e) {}
-
   return (
     <>
-      <div className={styles.container} onClick={handleHeaderClick}>
+      <div className={styles.container}>
         <div className={styles.artists_container} data-artists>
-          <div className={styles.artists} data-artists>
+          <Link href="/artists" className={styles.artists} data-artists>
             Artists
-          </div>
+          </Link>
         </div>
         <div className={styles.logo_container}>
-          <div className={styles.logo} data-logo>
+          <Link href="/" className={styles.logo} data-logo>
             <span style={{ color: "var(--blue)" }}>A</span>
             <span style={{ color: "var(--orange)" }}>R</span>
             <span style={{ color: "var(--blue)" }}>T</span>
@@ -22,12 +20,16 @@ export default function Header() {
             <span style={{ color: "var(--blue)" }}>O</span>
             <span style={{ color: "var(--orange)" }}>W</span>
             <span style={{ color: "var(--blue)" }}>E</span>
-          </div>
+          </Link>
         </div>
         <div className={styles.categories_container} data-categories>
-          <div className={styles.categories} data-categories>
+          <Link
+            href="/categories"
+            className={styles.categories}
+            data-categories
+          >
             Categories
-          </div>
+          </Link>
         </div>
       </div>
     </>
