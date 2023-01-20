@@ -2,9 +2,9 @@ export default function generateMosaicData(thumbnail, medium) {
   // Place post data, thumbnail URL and medium image URL into an array
   return thumbnail.reduce((arr, post, idx) => {
     if (post.featuredImage?.node.sourceUrl) {
-      const { postId, title } = post;
+      const { databaseId, title } = post;
       arr.push({
-        postId,
+        id: databaseId,
         title,
         thumbnail: post.featuredImage.node.sourceUrl,
         medium: medium[idx].featuredImage.node.sourceUrl,

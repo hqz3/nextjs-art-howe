@@ -23,7 +23,7 @@ async function fetchMosaic(size) {
                   }
                 }
               }
-              postId
+              databaseId
               title
             }
           }
@@ -44,5 +44,7 @@ export default async function HomePage() {
   ]).then((res) => res);
   const mosaicData = generateMosaicData(thumbnail, medium);
 
-  return <Mosaic mosaicData={mosaicData} />;
+  if (mosaicData) {
+    return <Mosaic mosaicData={mosaicData} />;
+  }
 }
