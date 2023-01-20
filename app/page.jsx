@@ -11,6 +11,6 @@ export default async function HomePage() {
   );
 
   if (mosaicData) {
-    return <Mosaic mosaicData={mosaicData} />;
+    return <Mosaic mosaicData={mosaicData} randomize={true} />;
   }
 }
