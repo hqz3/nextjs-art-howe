@@ -3,7 +3,7 @@ import styles from "./ArtworkDetail.module.css";
 export default function ArtworkDetail({ artwork }) {
   return (
     <div className={styles.container}>
-      <div id="artist">{artwork.details.artist?.toUpperCase()}</div>
+      <div id="artist">{artwork.details.artist.toUpperCase()}</div>
       <br />
       <div className="title">{artwork.title}</div>
       <div id="year">{artwork.details.year}</div>
@@ -15,7 +15,7 @@ export default function ArtworkDetail({ artwork }) {
       <div id="venue">{artwork.details.venue}</div>
       <br />
       <b>Date Seen</b>
-      <div>{artwork.details.dateSeen?.replace(/[/]/g, ".")}</div>
+      <div>{artwork.details.dateSeen.replace(/[/]/g, ".")}</div>
       <br />
       <b>Tags</b>
       <div>
