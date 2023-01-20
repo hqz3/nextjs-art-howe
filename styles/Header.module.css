@@ -16,12 +16,11 @@
 }
 
 .logo_container {
-  justify-content: center;
   font-size: 3.5rem;
   grid-area: logo;
+  justify-content: center;
   letter-spacing: 0.1rem;
   text-align: center;
-  width: 100%;
 }
 
 .categories_container {
