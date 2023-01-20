@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 export default async function ArtworkPage({ params: { id } }) {
   const artwork = await getArtwork(id);
-  if (!artwork.post || !artwork.mediaItems) return <div></div>;
+  if (!artwork || !artwork.post || !artwork.mediaItems) return <div></div>;
 
   const images = artwork.mediaItems.edges.map((item) => ({
     original: item.node.mediaItemUrl,
