@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex: 25%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.2rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-break: break-word;
+}
+
+.container .title {
+  font-style: italic;
+}
+
+.container #artist,
+#year,
+#exhibition,
+#venue,
+#tag {
+  cursor: pointer;
+}
+
+.container #tag:hover {
+  color: var(--orange);
+  transition: var(--hoverTransition);
+}
+
+.container::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-height: 900px) {
+  .container {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 1rem;
+  }
+}
