@@ -1,0 +1,22 @@
+.container {
+  font-size: 1.25rem;
+  animation: animateArtists var(--pageLoadAnimation);
+}
+
+@keyframes animateArtists {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.artist {
+  cursor: pointer;
+}
+
+.artist:hover {
+  color: var(--orange);
+  transition: var(--hoverTransition);
+}
