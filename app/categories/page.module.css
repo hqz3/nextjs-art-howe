@@ -1,0 +1,22 @@
+.container {
+  font-size: 1.25rem;
+  animation: animateCategories var(--pageLoadAnimation);
+}
+
+@keyframes animateCategories {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tag {
+  cursor: pointer;
+}
+
+.tag:hover {
+  color: var(--orange);
+  transition: var(--hoverTransition);
+}
