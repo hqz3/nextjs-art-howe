@@ -1,30 +1,9 @@
+import Link from "next/link";
 import styles from "./page.module.css";
+import getAllArtists from "@/queries/getAllArtists";
+import convertToSlug from "@/utils/convertToSlug";
 
 export const revalidate = process.env.REVALIDATE_TIME;
-
-async function getAllArtists() {
-  return fetch(process.env.REACT_APP_WORDPRESS_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: `
-        query {
-          posts(first: 999999) {
-            nodes {
-              details {
-                artist
-              }
-            }
-          }
-        }
-      `,
-    }),
-  })
-    .then((res) => res.json())
-    .then(({ data }) => data.posts.nodes);
-}
 
 export default async function ArtistsPage() {
   const artists = await getAllArtists();
@@ -44,7 +23,12 @@ export default async function ArtistsPage() {
           {idx > 0 && artist[0] !== filteredArtistsData[idx - 1][0] && (
             <b>{artist[0]}</b>
           )}
-          <div className={styles.artist}>{artist}</div>
+          <Link
+            href={"/artists/" + convertToSlug(artist)}
+            className={styles.artist}
+          >
+            {artist}
+          </Link>
         </div>
       ))}
     </div>

@@ -1,48 +1,14 @@
 import Mosaic from "./Mosaic";
+import fetchMosaic from "@/queries/getMosaic";
 import generateMosaicData from "@/utils/generateMosaicData";
 
-async function fetchMosaic(size) {
-  return fetch(process.env.REACT_APP_WORDPRESS_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: `
-        query {
-          posts(first: 10) {
-            nodes {
-              featuredImage {
-                node {
-                  sourceUrl(size: ${size})
-                  mediaDetails {
-                    sizes(include: ${size}) {
-                      height
-                      width
-                    }
-                  }
-                }
-              }
-              databaseId
-              title
-            }
-          }
-        }
-      `,
-    }),
-  })
-    .then((res) => res.json())
-    .then(({ data }) => {
-      return data.posts.nodes;
-    });
-}
+export const revalidate = process.env.REVALIDATE_TIME;
 
 export default async function HomePage() {
-  const [thumbnail, medium] = await Promise.all([
+  const mosaicData = await generateMosaicData(
     fetchMosaic("THUMBNAIL"),
-    fetchMosaic("MEDIUM"),
-  ]).then((res) => res);
-  const mosaicData = generateMosaicData(thumbnail, medium);
+    fetchMosaic("MEDIUM")
+  );
 
   if (mosaicData) {
     return <Mosaic mosaicData={mosaicData} />;
