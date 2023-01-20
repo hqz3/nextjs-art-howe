@@ -27,6 +27,53 @@ a {
   text-decoration: none;
 }
 
+/* React Image Gallery */
+.image-gallery,
+.image-gallery:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Prevent images from overflowing the image gallery */
+.image-gallery-content {
+  max-width: 100%;
+}
+
+.image-gallery-image {
+  max-width: 75%;
+}
+
+/* Change the image gallery's navigation icons color */
+.image-gallery .image-gallery-icon {
+  color: black;
+  filter: drop-shadow(0 0 0 white);
+  outline: none;
+}
+
+.image-gallery .image-gallery-icon.image-gallery-left-nav .image-gallery-svg,
+.image-gallery .image-gallery-icon.image-gallery-right-nav .image-gallery-svg {
+  height: 90px;
+  width: 45px;
+}
+
+.image-gallery .image-gallery-icon.image-gallery-left-nav:hover,
+.image-gallery .image-gallery-icon.image-gallery-right-nav:hover,
+.image-gallery .image-gallery-icon.image-gallery-fullscreen-button:hover {
+  color: var(--orange);
+}
+
+/* Reset the max-width on mobile screens */
+@media screen and (max-width: 768px) {
+  .image-gallery .image-gallery-icon.image-gallery-left-nav .image-gallery-svg,
+  .image-gallery
+    .image-gallery-icon.image-gallery-right-nav
+    .image-gallery-svg {
+    height: 60px;
+    width: 30px;
+  }
+}
+
 /* Mosaic styling */
 
 .mosaic {
