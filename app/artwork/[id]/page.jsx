@@ -59,8 +59,8 @@ async function getArtwork(id) {
     },
     body: JSON.stringify({
       query: `
-        query ($id: ID!) {
-          post(id: $id, idType: DATABASE_ID) {
+        query {
+          post(id: ${id}, idType: DATABASE_ID) {
             title
             tags {
               edges {
@@ -79,7 +79,7 @@ async function getArtwork(id) {
               year
             }
           }
-          mediaItems(where: {parent: $id, orderby: {field: TITLE, order: ASC}}) {
+          mediaItems(where: {parent: ${id}, orderby: {field: TITLE, order: ASC}}) {
             edges {
               node {
                 mediaItemUrl
@@ -88,9 +88,6 @@ async function getArtwork(id) {
           }
         }
       `,
-      variables: {
-        id,
-      },
     }),
   })
     .then((res) => res.json())
