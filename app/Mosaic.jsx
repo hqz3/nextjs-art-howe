@@ -3,24 +3,26 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Mosaic({ mosaicData }) {
+export default function Mosaic({ mosaicData, randomize }) {
   const mosaicElement = useRef(null);
-  const [shuffled, setShuffled] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getRandomInt = (max) => {
-      return Math.floor(Math.random() * max);
-    };
-    const swap = (array, idx1, idx2) => {
-      [array[idx1], array[idx2]] = [array[idx2], array[idx1]];
-    };
-    // Fisher-Yates algorithm to generate a randomly ordered mosaic
-    for (let i = mosaicData.length - 1; i >= 0; i--) {
-      let randomIdx = getRandomInt(i);
-      swap(mosaicData, i, randomIdx);
+    if (randomize) {
+      const getRandomInt = (max) => {
+        return Math.floor(Math.random() * max);
+      };
+      const swap = (array, idx1, idx2) => {
+        [array[idx1], array[idx2]] = [array[idx2], array[idx1]];
+      };
+      // Fisher-Yates algorithm to generate a randomly ordered mosaic
+      for (let i = mosaicData.length - 1; i >= 0; i--) {
+        let randomIdx = getRandomInt(i);
+        swap(mosaicData, i, randomIdx);
+      }
     }
-    setShuffled(true);
-  }, [mosaicData]);
+    setLoading(false);
+  }, [mosaicData, randomize]);
 
   function handleMosaicHover(e) {
     if (e.target.dataset?.image !== "regular") return;
@@ -39,7 +41,7 @@ export default function Mosaic({ mosaicData }) {
     }
   }
 
-  if (shuffled) {
+  if (!loading) {
     return (
       <>
         <div
