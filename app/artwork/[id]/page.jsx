@@ -2,8 +2,7 @@ import ArtworkCarousel from "./ArtworkCarousel";
 import ArtworkDetail from "./ArtworkDetail";
 import styles from "./page.module.css";
 
-const sixHours = 1000 * 60 * 60 * 6;
-export const revalidate = sixHours;
+export const revalidate = process.env.REVALIDATE_TIME;
 
 export async function generateStaticParams() {
   const artworks = await getAllArtworks();

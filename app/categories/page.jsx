@@ -1,7 +1,6 @@
 import styles from "./page.module.css";
 
-const sixHours = 1000 * 60 * 60 * 6;
-export const revalidate = sixHours;
+export const revalidate = process.env.REVALIDATE_TIME;
 
 async function getAllCategories() {
   return fetch(process.env.REACT_APP_WORDPRESS_API_URL, {
