@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Mosaic({ mosaicData }) {
   const mosaicElement = useRef(null);
@@ -19,38 +20,7 @@ export default function Mosaic({ mosaicData }) {
       swap(mosaicData, i, randomIdx);
     }
     setShuffled(true);
-  }, []);
-
-  if (shuffled) {
-    return (
-      <>
-        <div
-          className="mosaic"
-          onMouseOver={handleMosaicHover}
-          ref={mosaicElement}
-        >
-          {mosaicData.map((post) => (
-            <div className="mosaic__container" key={post.postId}>
-              <Image
-                src={post.thumbnail}
-                data-image="pixelated"
-                alt={post.title}
-                height={10}
-                width={10}
-              />
-              <Image
-                src={post.medium}
-                data-image="regular"
-                alt={post.title}
-                height={post.height}
-                width={post.width}
-              />
-            </div>
-          ))}
-        </div>
-      </>
-    );
-  }
+  }, [mosaicData]);
 
   function handleMosaicHover(e) {
     if (e.target.dataset?.image !== "regular") return;
@@ -67,5 +37,38 @@ export default function Mosaic({ mosaicData }) {
     if (e.pageY + 150 >= scrollHeight) {
       // e.target.classList.add("up");
     }
+  }
+
+  if (shuffled) {
+    return (
+      <>
+        <div
+          className="mosaic"
+          onMouseOver={handleMosaicHover}
+          ref={mosaicElement}
+        >
+          {mosaicData.map((post) => (
+            <div className="mosaic__container" key={post.id}>
+              <Link href={"/artwork/" + String(post.id)}>
+                <Image
+                  src={post.thumbnail}
+                  data-image="pixelated"
+                  alt={post.title}
+                  height={10}
+                  width={10}
+                />
+                <Image
+                  src={post.medium}
+                  data-image="regular"
+                  alt={post.title}
+                  height={post.height}
+                  width={post.width}
+                />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </>
+    );
   }
 }
