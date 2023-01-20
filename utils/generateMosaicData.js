@@ -1,4 +1,12 @@
-export default function generateMosaicData(thumbnail, medium) {
+export default async function generateMosaicData(
+  thumbnailPromise,
+  mediumPromise
+) {
+  const [thumbnail, medium] = await Promise.all([
+    thumbnailPromise,
+    mediumPromise,
+  ]).then((res) => res);
+
   // Place post data, thumbnail URL and medium image URL into an array
   return thumbnail.reduce((arr, post, idx) => {
     if (post.featuredImage?.node.sourceUrl) {
