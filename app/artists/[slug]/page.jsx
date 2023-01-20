@@ -12,6 +12,6 @@ export default async function ArtistPage({ params: { slug } }) {
   );
 
   if (mosaicData) {
-    return <Mosaic mosaicData={mosaicData} />;
+    return <Mosaic mosaicData={mosaicData} randomize={false} />;
   }
 }

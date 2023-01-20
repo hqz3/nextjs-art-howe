@@ -10,6 +10,6 @@ export default async function CategoryPage({ params: { slug } }) {
   );
 
   if (mosaicData) {
-    return <Mosaic mosaicData={mosaicData} />;
+    return <Mosaic mosaicData={mosaicData} randomize={false} />;
   }
 }
