@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
 :root {
   --blue: #002d72;
   --orange: #f26e21;
@@ -13,6 +15,7 @@
 
 html {
   display: grid;
+  font-family: "EB Garamond", serif;
   font-size: 16px;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
