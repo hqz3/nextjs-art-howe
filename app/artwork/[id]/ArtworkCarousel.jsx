@@ -1,6 +1,7 @@
 "use client";
 import styles from "./ArtworkCarousel.module.css";
 import { useEffect, useState } from "react";
+import ArtworkCarouselSkeleton from "./ArtworkCarouselSkeleton";
 import ReactImageGallery from "react-image-gallery";
 
 export default function ArtworkCarousel({ images }) {
@@ -20,13 +21,12 @@ export default function ArtworkCarousel({ images }) {
 
   return (
     <div className={styles.container}>
-      {loading && <div>Loading</div>}
+      {loading && <ArtworkCarouselSkeleton />}
       {!loading && (
         <ReactImageGallery
           items={images}
           showPlayButton={false}
           showThumbnails={false}
-          onImageLoad={() => null}
         />
       )}
     </div>
