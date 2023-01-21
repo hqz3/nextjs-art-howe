@@ -3,7 +3,7 @@ import getSearchTerm from "@/queries/getSearchTerm";
 import generateMosaicData from "@/utils/generateMosaicData";
 
 export default async function CategoryPage({ params: { slug } }) {
-  const query = slug.split("-").join(" ");
+  const query = decodeURIComponent(slug);
   const mosaicData = await generateMosaicData(
     getSearchTerm(query, "THUMBNAIL"),
     getSearchTerm(query, "MEDIUM")

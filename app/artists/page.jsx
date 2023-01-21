@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import getAllArtists from "@/queries/getAllArtists";
-import convertToSlug from "@/utils/convertToSlug";
 
 export const revalidate = process.env.REVALIDATE_TIME;
 
@@ -23,10 +22,7 @@ export default async function ArtistsPage() {
           {idx > 0 && artist[0] !== filteredArtistsData[idx - 1][0] && (
             <b>{artist[0]}</b>
           )}
-          <Link
-            href={"/artists/" + convertToSlug(artist)}
-            className={styles.artist}
-          >
+          <Link href={"/artists/" + artist} className={styles.artist}>
             {artist}
           </Link>
         </div>
