@@ -21,6 +21,15 @@ html {
   padding: 1.5rem 3rem;
 }
 
+body::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
 a {
   color: inherit;
   text-decoration: none;
