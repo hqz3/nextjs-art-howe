@@ -81,8 +81,6 @@ a {
   grid-template-columns: repeat(auto-fit, 50px);
   gap: 10px;
   justify-content: center;
-
-  background-color: yellow;
 }
 
 @keyframes animateMosaic {

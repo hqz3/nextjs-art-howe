@@ -26,18 +26,16 @@ export default function Mosaic({ mosaicData, randomize }) {
 
   function handleMosaicHover(e) {
     if (e.target.dataset?.image !== "regular") return;
-
     const mosaicWidth = mosaicElement.current.offsetWidth;
+    const windowHeight = window.innerHeight;
     const scrollHeight = document.body.scrollHeight;
-    e.target.classList.remove("hover-right", "hover-left", "up");
 
-    if (e.clientX <= mosaicWidth / 2) {
-      e.target.classList.add("hover-right");
-    } else {
-      e.target.classList.add("hover-left");
-    }
-    if (e.pageY + 150 >= scrollHeight) {
-      // e.target.classList.add("up");
+    e.target.classList = "";
+    if (e.clientX <= mosaicWidth / 2) e.target.classList.add("hover-right");
+    else e.target.classList.add("hover-left");
+
+    if (e.pageY + 150 >= Math.max(windowHeight, scrollHeight)) {
+      e.target.classList.add("up");
     }
   }
 
