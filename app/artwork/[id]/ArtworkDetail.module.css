@@ -21,9 +21,14 @@
   cursor: pointer;
 }
 
-.container #tag:hover {
+.container a:not([id="sourceLink"]):hover {
   color: var(--orange);
   transition: var(--hoverTransition);
+}
+
+.sourceLink {
+  color: blue;
+  text-decoration: underline;
 }
 
 .container::-webkit-scrollbar {
