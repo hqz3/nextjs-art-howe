@@ -11,7 +11,7 @@ export default function SearchBar() {
     e.preventDefault();
     const query = searchBarElement.current.value;
     searchBarElement.current.value = "";
-    router.push("/search/" + query);
+    router.push("/search/" + encodeURIComponent(query));
   }
 
   return (

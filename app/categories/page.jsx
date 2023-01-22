@@ -15,7 +15,10 @@ export default async function CategoriesPage() {
           {idx > 0 && tag.name[0] !== categories[idx - 1].name[0] && (
             <b>{tag.name[0]}</b>
           )}
-          <Link href={"/categories/" + tag.name} className={styles.tag}>
+          <Link
+            href={"/categories/" + encodeURIComponent(tag.name)}
+            className={styles.tag}
+          >
             {tag.name}
           </Link>
         </div>

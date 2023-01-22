@@ -4,22 +4,34 @@ import Link from "next/link";
 export default function ArtworkDetail({ artwork }) {
   return (
     <div className={styles.container}>
-      <Link href={"/artists/" + artwork.details.artist} id="artist">
+      <Link
+        href={"/artists/" + encodeURIComponent(artwork.details.artist)}
+        id="artist"
+      >
         {artwork.details.artist.toUpperCase()}
       </Link>
       <br />
       <div className="title">{artwork.title}</div>
-      <Link href={"/search/" + artwork.details.year} id="year">
+      <Link
+        href={"/search/" + encodeURIComponent(artwork.details.year)}
+        id="year"
+      >
         {artwork.details.year}
       </Link>
       <br />
       <b>Exhibition</b>
-      <Link href={"/search/" + artwork.details.exhibition} id="exhibition">
+      <Link
+        href={"/search/" + encodeURIComponent(artwork.details.exhibition)}
+        id="exhibition"
+      >
         {artwork.details.exhibition}
       </Link>
       <br />
       <b>Venue</b>
-      <Link href={"/search/" + artwork.details.venue} id="venue">
+      <Link
+        href={"/search/" + encodeURIComponent(artwork.details.venue)}
+        id="venue"
+      >
         {artwork.details.venue}
       </Link>
       <br />
@@ -32,7 +44,7 @@ export default function ArtworkDetail({ artwork }) {
           if (idx === artwork.tags.edges.length - 1) {
             return (
               <Link
-                href={"/search/" + tag.node.name}
+                href={"/search/" + encodeURIComponent(tag.node.name)}
                 id="tag"
                 key={idx}
               >{`${tag.node.name}`}</Link>
@@ -40,7 +52,7 @@ export default function ArtworkDetail({ artwork }) {
           }
           return (
             <Link
-              href={"/search/" + tag.node.name}
+              href={"/search/" + encodeURIComponent(tag.node.name)}
               id="tag"
               key={idx}
             >{`${tag.node.name}; `}</Link>
