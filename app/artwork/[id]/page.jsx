@@ -1,17 +1,7 @@
 import styles from "./page.module.css";
 import ArtworkCarousel from "./ArtworkCarousel";
 import ArtworkDetail from "./ArtworkDetail";
-import getAllArtworks from "@/queries/getAllArtworks";
-import getArtwork from "@/queries/getArtwork";
-
-export const revalidate = process.env.REVALIDATE_TIME;
-
-export async function generateStaticParams() {
-  const artworks = await getAllArtworks();
-  return artworks.map((artwork) => ({
-    id: `${artwork.id}`,
-  }));
-}
+import getArtwork from "@/fetch/getArtwork";
 
 export default async function ArtworkPage({ params: { id } }) {
   const artwork = await getArtwork(id);
