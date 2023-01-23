@@ -18,6 +18,7 @@ export default async function CategoriesPage() {
           <Link
             href={"/categories/" + encodeURIComponent(tag.name)}
             className={styles.tag}
+            prefetch={false}
           >
             {tag.name}
           </Link>

@@ -49,7 +49,7 @@ export default function Mosaic({ mosaicData, randomize }) {
         >
           {mosaicData.map((post) => (
             <div className="mosaic__container" key={post.id}>
-              <Link href={"/artwork/" + String(post.id)}>
+              <Link href={"/artwork/" + String(post.id)} prefetch={false}>
                 <Image
                   src={post.thumbnail}
                   data-image="pixelated"

@@ -6,7 +6,12 @@ export default function Nav() {
     <>
       <div className={styles.container}>
         <div className={styles.artists_container} data-artists>
-          <Link href="/artists" className={styles.artists} data-artists>
+          <Link
+            href="/artists"
+            className={styles.artists}
+            data-artists
+            prefetch={false}
+          >
             Artists
           </Link>
         </div>
@@ -27,6 +32,7 @@ export default function Nav() {
             href="/categories"
             className={styles.categories}
             data-categories
+            prefetch={false}
           >
             Categories
           </Link>

@@ -26,6 +26,7 @@ export default async function ArtistsPage() {
             <Link
               href={"/artists/" + encodeURIComponent(artist)}
               className={styles.artist}
+              prefetch={false}
             >
               {artist}
             </Link>
