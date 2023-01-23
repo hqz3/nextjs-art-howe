@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Mosaic from "@/app/Mosaic";
-import getSearchTerm from "@/queries/getSearchTerm";
+import getSearchTerm from "@/fetch/getSearchQuery";
 import generateMosaicData from "@/utils/generateMosaicData";
 
 export default async function SearchPage({ params: { query } }) {

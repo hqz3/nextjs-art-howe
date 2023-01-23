@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Link from "next/link";
-import getAllArtists from "@/queries/getAllArtists";
+import getAllArtists from "@/fetch/getAllArtists";
 
 export const revalidate = process.env.REVALIDATE_TIME;
 

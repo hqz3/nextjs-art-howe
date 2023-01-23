@@ -1,5 +1,5 @@
 import Mosaic from "@/app/Mosaic";
-import getSearchTerm from "@/queries/getSearchTerm";
+import getSearchTerm from "@/fetch/getSearchQuery";
 import generateMosaicData from "@/utils/generateMosaicData";
 
 export const revalidate = process.env.REVALIDATE_TIME;
