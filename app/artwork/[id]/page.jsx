@@ -2,7 +2,6 @@ import styles from "./page.module.css";
 import ArtworkCarousel from "./ArtworkCarousel";
 import ArtworkDetail from "./ArtworkDetail";
 import getArtwork from "@/fetch/getArtwork";
-import getAllArtworks from "@/fetch/getAllArtworks";
 
 export const revalidate = process.env.REVALIDATE_TIME;
 
