@@ -2,6 +2,16 @@ import styles from "./page.module.css";
 import ArtworkCarousel from "./ArtworkCarousel";
 import ArtworkDetail from "./ArtworkDetail";
 import getArtwork from "@/fetch/getArtwork";
+import getAllArtworks from "@/fetch/getAllArtworks";
+
+export const revalidate = process.env.REVALIDATE_TIME;
+
+export async function generateStaticParams() {
+  const artworks = await getAllArtworks();
+  return artworks.map((artwork) => ({
+    id: `${artwork.id}`,
+  }));
+}
 
 export default async function ArtworkPage({ params: { id } }) {
   const artwork = await getArtwork(id);
