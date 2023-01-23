@@ -15,10 +15,10 @@
 
 html {
   display: grid;
-  font-family: "EB Garamond", serif;
-  font-size: 16px;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr;
+  font-family: "EB Garamond", serif;
+  font-size: 16px;
   min-height: 100vh;
   width: 100%;
   padding: 1.5rem 3rem;
@@ -105,6 +105,7 @@ a {
 }
 
 .mosaic__container {
+  background-color: gainsboro;
   cursor: pointer;
   display: inline-block;
   height: 50px;
@@ -113,7 +114,6 @@ a {
 }
 
 [data-image="pixelated"] {
-  background-color: gainsboro;
   image-rendering: pixelated;
   position: absolute;
   top: 0px;
