@@ -3,7 +3,7 @@ export const MOSAIC_QUERY = `
     $sourceSize: MediaItemSizeEnum
     $mediaSize: [MediaItemSizeEnum]
   ) {
-    posts(first: 20) {
+    posts(first: 999999) {
       nodes {
         featuredImage {
           node {
@@ -23,6 +23,16 @@ export const MOSAIC_QUERY = `
   }
 `;
 
+export const ALL_ARTWORKS_QUERY = `
+  query getAllArtworks {
+    posts(first: 999999) {
+      nodes {
+        postId
+      }
+    }
+  }
+`;
+
 export const ALL_ARTISTS_QUERY = `
   query getAllArtists {
     posts(first: 999999) {
@@ -37,7 +47,7 @@ export const ALL_ARTISTS_QUERY = `
 
 export const ALL_CATEGORIES_QUERY = `
   query getAllCategories {
-    tags(first: 9999999) {
+    tags(first: 999999) {
       nodes {
         name
       }
