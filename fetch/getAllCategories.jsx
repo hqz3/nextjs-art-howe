@@ -1,19 +1,13 @@
+import { ALL_CATEGORIES_QUERY } from "@/graphql/queries";
+
 export default async function getAllCategories() {
-  return fetch(process.env.REACT_APP_WORDPRESS_API_URL, {
+  return fetch(process.env.REACT_APP_WP_API, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      query: `
-        query {
-          tags(first: 9999999) {
-            nodes {
-              name
-            }
-          }
-        }
-      `,
+      query: ALL_CATEGORIES_QUERY,
     }),
   })
     .then((res) => res.json())
