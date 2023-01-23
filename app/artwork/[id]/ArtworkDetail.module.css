@@ -9,16 +9,8 @@
   word-break: break-word;
 }
 
-.container .title {
+.title {
   font-style: italic;
-}
-
-.container #artist,
-#year,
-#exhibition,
-#venue,
-#tag {
-  cursor: pointer;
 }
 
 .container a:not([id="sourceLink"]):hover {

@@ -6,16 +6,15 @@ export default function ArtworkDetail({ artwork }) {
     <div className={styles.container}>
       <Link
         href={"/artists/" + encodeURIComponent(artwork.details.artist)}
-        id="artist"
+        className={styles.artist}
         prefetch={false}
       >
         {artwork.details.artist.toUpperCase()}
       </Link>
       <br />
-      <div className="title">{artwork.title}</div>
+      <div className={styles.title}>{artwork.title}</div>
       <Link
         href={"/search/" + encodeURIComponent(artwork.details.year)}
-        id="year"
         prefetch={false}
       >
         {artwork.details.year}
@@ -24,7 +23,6 @@ export default function ArtworkDetail({ artwork }) {
       <b>Exhibition</b>
       <Link
         href={"/search/" + encodeURIComponent(artwork.details.exhibition)}
-        id="exhibition"
         prefetch={false}
       >
         {artwork.details.exhibition}
@@ -33,7 +31,6 @@ export default function ArtworkDetail({ artwork }) {
       <b>Venue</b>
       <Link
         href={"/search/" + encodeURIComponent(artwork.details.venue)}
-        id="venue"
         prefetch={false}
       >
         {artwork.details.venue}
@@ -49,7 +46,6 @@ export default function ArtworkDetail({ artwork }) {
             return (
               <Link
                 href={"/search/" + encodeURIComponent(tag.node.name)}
-                id="tag"
                 key={idx}
                 prefetch={false}
               >{`${tag.node.name}`}</Link>
@@ -58,7 +54,6 @@ export default function ArtworkDetail({ artwork }) {
           return (
             <Link
               href={"/search/" + encodeURIComponent(tag.node.name)}
-              id="tag"
               key={idx}
               prefetch={false}
             >{`${tag.node.name}; `}</Link>
