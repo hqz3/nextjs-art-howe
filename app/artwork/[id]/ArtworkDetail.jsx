@@ -7,6 +7,7 @@ export default function ArtworkDetail({ artwork }) {
       <Link
         href={"/artists/" + encodeURIComponent(artwork.details.artist)}
         id="artist"
+        prefetch={false}
       >
         {artwork.details.artist.toUpperCase()}
       </Link>
@@ -15,6 +16,7 @@ export default function ArtworkDetail({ artwork }) {
       <Link
         href={"/search/" + encodeURIComponent(artwork.details.year)}
         id="year"
+        prefetch={false}
       >
         {artwork.details.year}
       </Link>
@@ -23,6 +25,7 @@ export default function ArtworkDetail({ artwork }) {
       <Link
         href={"/search/" + encodeURIComponent(artwork.details.exhibition)}
         id="exhibition"
+        prefetch={false}
       >
         {artwork.details.exhibition}
       </Link>
@@ -31,6 +34,7 @@ export default function ArtworkDetail({ artwork }) {
       <Link
         href={"/search/" + encodeURIComponent(artwork.details.venue)}
         id="venue"
+        prefetch={false}
       >
         {artwork.details.venue}
       </Link>
@@ -47,6 +51,7 @@ export default function ArtworkDetail({ artwork }) {
                 href={"/search/" + encodeURIComponent(tag.node.name)}
                 id="tag"
                 key={idx}
+                prefetch={false}
               >{`${tag.node.name}`}</Link>
             );
           }
@@ -55,6 +60,7 @@ export default function ArtworkDetail({ artwork }) {
               href={"/search/" + encodeURIComponent(tag.node.name)}
               id="tag"
               key={idx}
+              prefetch={false}
             >{`${tag.node.name}; `}</Link>
           );
         })}
