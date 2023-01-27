@@ -61,14 +61,18 @@ export default function ArtworkDetail({ artwork }) {
         })}
       </div>
       <br />
-      <b>Hi-res Link</b>
-      <a
-        id="sourceLink"
-        className={styles.sourceLink}
-        href={artwork.details.link}
-      >
-        {artwork.details.link}
-      </a>
+      {artwork.details.link && (
+        <>
+          <b>Hi-res Link</b>
+          <a
+            id="sourceLink"
+            className={styles.sourceLink}
+            href={artwork.details.link}
+          >
+            {artwork.details.link}
+          </a>
+        </>
+      )}
     </div>
   );
 }
